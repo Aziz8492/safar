@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منشورات المعارفي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2F0;--surface:#FFFFFF;--ink:#13262B;--muted:#5B6E70;--accent:#1F5F5B;--gold:#B8892B;--line:#D3DDDA;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1C20;--surface:#172A2F;--ink:#E6EEEC;--muted:#98ABAB;--accent:#5FB3A9;--gold:#D9AE55;--line:#27403F}}
+:root[data-theme="dark"]{--bg:#0F1C20;--surface:#172A2F;--ink:#E6EEEC;--muted:#98ABAB;--accent:#5FB3A9;--gold:#D9AE55;--line:#27403F}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Amiri','Noto Naskh Arabic',serif;line-height:1.9;padding-bottom:90px}
+header{padding:14px 20px;text-align:center;border-bottom:1px solid var(--line);color:var(--muted);font-size:17px}
+header b{color:var(--accent)}
+main{max-width:640px;margin:0 auto;padding:18px}
+.view,.tab{display:none}.view.on,.tab.on{display:block}
+h1{font-size:38px;margin:10px 0 4px;color:var(--accent);line-height:1.3}
+.lead{color:var(--muted);margin:0 0 22px;font:15px/1.6 system-ui,sans-serif}
+.card{display:block;width:100%;text-align:inherit;background:var(--surface);border:1px solid var(--line);border-inline-start:6px solid var(--gold);border-radius:10px;padding:16px 18px;margin-bottom:14px;color:var(--ink);font:inherit;cursor:pointer}
+.card b{display:block;font-size:26px;color:var(--accent)}
+.card span,.card i{display:block;font:14px/1.6 system-ui,sans-serif;color:var(--muted);font-style:normal}
+.card.soon{border-inline-start-color:var(--line)}
+.back{border:0;background:none;color:var(--accent);font:600 15px system-ui,sans-serif;padding:6px 0;margin-bottom:8px;cursor:pointer}
+nav{position:fixed;bottom:0;left:0;right:0;display:none;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;border:0;background:none;color:var(--muted);padding:12px 4px 10px;font:600 14px system-ui,sans-serif;cursor:pointer}
+nav button.on{color:var(--accent);box-shadow:inset 0 3px 0 var(--gold)}
+nav b{display:block;font:700 17px 'Amiri',serif}
+button:focus-visible,select:focus-visible,label:focus-within,.item:focus-visible{outline:3px solid var(--gold)}
+.row{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+select{flex:1;min-width:140px;font:inherit;font-size:18px;padding:8px 10px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px}
+.sz button{font:700 16px sans-serif;width:40px;height:40px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 18px;font-size:var(--fs,22px)}
+article h2{font-size:1.25em;color:var(--accent);margin:0 0 10px}
+article h3{font-size:1em;color:var(--gold);margin:1em 0 .3em}
+article p{margin:0 0 .9em}
+#atext p{padding:4px 10px;border-inline-start:4px solid transparent;cursor:pointer}
+#atext p.hl{border-color:var(--gold);background:var(--bg)}
+.play,.add{display:inline-block;font:700 15px system-ui,sans-serif;padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:var(--bg);cursor:pointer}
+.add{background:none;border:1px solid var(--accent);color:var(--accent);white-space:nowrap}
+.prow{display:flex;gap:8px;align-items:stretch;margin-bottom:10px}
+.prow .item{margin:0;flex:1}.prow .add{display:flex;align-items:center}
+.item{display:block;width:100%;text-align:inherit;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);font:inherit;font-size:19px;cursor:pointer}
+.item.on{border-color:var(--accent);box-shadow:inset -4px 0 0 var(--accent)}
+.item span{display:block;font:13px system-ui,sans-serif;color:var(--muted)}
+audio{width:100%;margin:6px 0 16px}
+.note{font:14px/1.7 system-ui,sans-serif;color:var(--muted);background:var(--surface);border:1px dashed var(--gold);border-radius:10px;padding:10px 14px;margin-top:14px}
+#pstat:empty{display:none}
+#mk{display:none;position:fixed;left:16px;right:16px;bottom:calc(70px + env(safe-area-inset-bottom,0px));padding:16px;font-size:18px}
+#toast{display:none;position:fixed;left:16px;right:16px;top:calc(12px + env(safe-area-inset-top,0px));background:var(--ink);color:var(--bg);padding:12px 14px;border-radius:10px;font:14px/1.5 system-ui,sans-serif;z-index:9}
+.vh{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.add{position:relative;overflow:hidden}
+footer{text-align:center;color:var(--muted);font-size:15px;padding:14px}
+</style>
+</head>
+<body>
+<header><b>منشورات المعارفي</b> · AM Publications</header>
+<div id="toast" role="status"></div>
+<main>
+
+<section class="view on" id="v-home">
+<h1>منشورات المعارفي</h1>
+<p class="lead">Arabic books, audio and lessons for Rohingya learners. By Abu Hammad Abdul Aziz Nasir Al-Ma'arifi.</p>
+<button class="card" data-go="v-series"><b>سلسلة أركان</b><span>Silsilatu Arakan</span><i>Book One is ready to read</i></button>
+<button class="card soon" data-go="v-acad"><b>الكتب الأكاديمية</b><span>Academic Books</span><i>Coming soon</i></button>
+</section>
+
+<section class="view" id="v-series">
+<button class="back" data-go="v-home">← Back</button>
+<h1>سلسلة أركان كما رأيتها</h1>
+<p class="lead">Silsilatu Arakan: Arakan As I Saw It</p>
+<button class="card" data-go="v-book"><b>الكتاب الأول: سفر الكلبين</b><span>Book One: The Journey of the Two Dogs</span><i>Read · Listen &amp; read · Podcast</i></button>
+</section>
+
+<section class="view" id="v-acad">
+<button class="back" data-go="v-home">← Back</button>
+<h1>الكتب الأكاديمية</h1>
+<p class="lead">Academic Books</p>
+<p class="note">Coming soon: a complete Arabic syllabus for Rohingya students, level by level. Each level will have a book, audio, exercises and a teacher's guide.</p>
+</section>
+
+<section class="view" id="v-book">
+<button class="back" data-go="v-series">← Back</button>
+
+<div class="tab on" id="t-book">
+<div class="row"><select id="chap" aria-label="Chapter"></select>
+<span class="sz"><button id="sm" aria-label="Smaller text">أ-</button> <button id="lg" aria-label="Larger text">أ+</button></span></div>
+<article id="text"></article>
+</div>
+
+<div class="tab" id="t-audio">
+<div class="row"><select id="achap" aria-label="Chapter"></select>
+<label class="add">＋ Add audio<input type="file" id="af" accept="audio/*" class="vh"></label></div>
+<div class="row" id="demo"><button class="play" id="tp">▶ Play voice demo</button><select id="rate" aria-label="Speed"><option value="0.8">Slow</option><option value="1" selected>Normal</option></select></div>
+<audio id="aud" controls preload="none"></audio>
+<div class="row"><button class="add" id="sy" style="display:none">Sync text with audio</button><button class="add" id="cp">Copy timings</button></div>
+<article id="atext"></article>
+<p class="note" id="anote"></p>
+<button class="play" id="mk"></button>
+</div>
+
+<div class="tab" id="t-pod">
+<div class="row"><button class="add" id="newep">＋ New episode</button></div>
+<audio id="pod" controls preload="none"></audio>
+<div id="podList"></div>
+<p class="note">Tap an episode to play it. Tap ＋ Audio to attach your recording.</p>
+<p class="note" id="pstat"></p>
+</div>
+
+<footer>تأليف: الأستاذ أبو حماد عبد العزيز ناصر المعارفي<br>منشورات المعارفي | AM Publications</footer>
+</section>
+</main>
+
+<nav id="nav">
+<button class="on" data-t="t-book"><b>الكتاب</b>Read</button>
+<button data-t="t-audio"><b>مسموع</b>Listen &amp; Read</button>
+<button data-t="t-pod"><b>بودكاست</b>Podcast</button>
+</nav>
+
+<script>
+var CHAPTERS=[{"t": "عن السلسلة والكتاب", "p": ["<h3>عن السلسلة<\/h3>", "«سلسلة أركان كما رأيتها» سلسلة أدبية تحكي عن حياة الروهينجا في أركان، وتلقي الضوء على ما يواجهونه من اضطهاد وتمييز وحرمان من حقوقهم الأساسية، وتأخذ القارئ إلى تفاصيل حياتهم اليومية وأحلامهم ومعاناتهم.", "وهي ليست مجرد حكايات، بل نافذة تطل على حياة أناس حُرموا من أبسط حقوقهم، ومع ذلك لم يتخلوا عن الأمل والإصرار. وهي دعوة إلى التفكير والتعاطف، وتذكير بأن هناك من يعاني بصمت ويحتاج إلى صوت يحكي قصته.", "<h3>عن الكتاب الأول: سفر الكلبين<\/h3>", "في هذا الكتاب تُروى القصة بلسان كلبين هما باغو وبيرايا، ومن خلال عيونهما نرى ما اعتاد الناس ألا يروه: نقاط تفتيش تُذلّ الناس، ووثائق مرور تُفرض على المسلمين، ورشاوى وإتاوات تُدفع خوفاً من البطش، وأطفالاً يبحثون عن طعامهم في القمامة.", "<h3>ملخص القصة<\/h3>", "يخرج الصديقان باغو وبيرايا من قريتهما خيرادنغ متجهين إلى مدينة منغدو في أركان. وفي الطريق تتوالى أمامهما مشاهد نقاط التفتيش وقسوة العسكر، ثم يلتقيان الكلب الصالح جبّو الذي يستضيفهما ويفسر لهما ما يريانه، ويشهدان تناقضات المدينة، حتى يعودا إلى قريتهما وقد اتضح لهما معنى الشرف الحقيقي.", "<h3>الشخصيات الرئيسية<\/h3>", "<b>باغو: <\/b>الكلب الذي يقود الرحلة؛ سبق أن زار منغدو مع جده، وهو واعٍ صريح، يطرح السؤال الكبير عن الشرف ويصل في النهاية إلى جوابه.", "<b>بيرايا: <\/b>صديق باغو الوفي منذ الطفولة؛ يخاف الرحلة ويتردد فيها لكنه لا يتخلى عن صاحبه، ويحمل في أول الأمر نظرة الناس المادية إلى الشرف قبل أن تتغير.", "<b>جبّو: <\/b>كلب صالح مقيم في منغدو، يضيّف الصديقين ويشرح لهما أسباب الظلم الذي يريانه.", "<h3>موضوعات رئيسية<\/h3>", "<b>الظلم والاضطهاد: <\/b>نقاط التفتيش، ووثائق المرور، والإتاوات، والمداهمات الليلية التي يعيشها الناس.", "<b>الخنوع: <\/b>كيف يعتاد الناس الذل حتى يظنوه هو الأصل.", "<b>معيار الشرف: <\/b>أن الشرف لا يكون بالثياب والبيوت الفاخرة، بل بالرحمة بالضعفاء والعدل.", "<b>الإنسانية بعيون أخرى: <\/b>ما قد يغيب عن أنظار الناس في الظروف الصعبة يراه الكلبان بوضوح.", "<b>التكاتف: <\/b>دعوة المؤلف إلى رفض الخنوع، والاتحاد، والتعاون على الحماية والنصرة.", "<h3>هدف الكتاب<\/h3>", "يسعى الكتاب إلى إيصال رسالة تعاطف وفهم أعمق لمعاناة الروهينجا، من خلال قصة مؤثرة تُروى بلسان غير تقليدي، ويأمل المؤلف أن يفتح هذا العمل آفاقاً جديدة للتفكير والحوار حول هذه القضية الإنسانية."]}, {"t": "الافتتاح والمقدمة", "p": ["<h3>الحمد لله وحده، والصلاة والسلام على من لا نبي بعده، أما بعد:<\/h3>", "فإن الإسلام هو دين الهدى والنور، ودين الأمن والأمان الذي لا سعادة للبشرية ولا أمن لها في الدنيا والآخرة إلا عندما تهتدي بهداه، وتستضيء بنوره مخلصةً في عبوديتها لله الخالق، تأمر بأمره وتتبع منهجه، نابذةً كل منهج من المناهج الأرضية المخالفة له.", "والبشرية في هذا الزمان انصرفت عن منهج الإسلام انصرافًا، واعتقدت أن السعادة في غيره من المناهج الأرضية مثل الديمقراطية والشيوعية والقومية وغيرها من الأديان الفكرية المخالفة لدين الله. ولكن الله ما جعل السعادة للبشرية فيها، وإنما جعلها في منهج الإسلام الخالد.", "ومن هذه الاعتقادات الفاسدة أن بعض الناس طغى عليهم الظن بأن حياة المسلمين في أركان تحت حكم سلطة ميانمار الاستبدادية كعباد لها خيرٌ لهم من أن يجاهدوها أو يطالبوا بحقوقهم. ففي هذه القصة والأحداث المحكية، حاولنا أن نوضح أن في عبودية الكفار وفي الاستسلام أمامهم وفي اتباع منهج أرضي لا يوجد فلاح للمسلمين ولا سعادة لهم، وإنما السعادة والفلاح في منهج الإسلام، فلا بد لهم أن يستعدوا ويجمعوا القوة ويجاهدوا لتكون كلمة الله هي العليا ويكون الدين كله لله، كي يعيش الناس في أمن وسلام حقيقيين."]}, {"t": "الصديقان والانطلاقة", "p": ["إنهما كلبان متحابان، يعيشان في قرية ذات حقول خضراء ومزارع مروية من الأنهار النقية وراء الجبال ذات الأشجار المورقة المثمرة والمظلة (قرية خيرادنغ). كانت حياتهما كلها خيرًا وطمأنينة وأمنًا وسلامًا...", "وفي يوم من الأيام، كان باغو يلعب مع صديقه، فقال له:", "— يا ميرايا!", "فقال الآخر وهو يشعر بالغضب الشديد:", "— ألم أقل لك ألا تدعوني ميرايا؟! اسمي بيرايا، يا بيغو (وهو باغو في الأصل)!", "— عفواً أخي بيرايا، فقل لي: هل ذهبت أنت إلى منغدو في حياتك هذه؟", "— ماذا تظن أنت؟ وما هذه الثرثرة! نحن بخير هنا، وما الذي يحملنا على الذهاب إلى منغدو؟", "— ما طلبت منك أن تأتي معي إلى المدينة بعد، بل سألتك فقط: أذهبت إليها أم لا؟", "فلم يجب بيرايا عن السؤال، بل قال متسائلًا بكل دهشة:", "— هل أنت ذاهب إلى السوق هناك؟", "قال باغو بكل صراحة:", "— نعم، أنا ذاهب إلى منغدو، فأخبرني: أأنت ترافقني أم لا؟", "ولم يزل بيرايا في دهشته الأولى وقال في تردد ولم يقصد ما يقوله:", "— بكل تأكيد! أنا أرافقك ولو ذهبت إلى تاونغوب، لأنك صاحبي منذ الطفولة ولن أصبر على فراقك أبداً.", "وافق الصديقان على الذهاب إلى السوق في مدينة منغدو في اليوم التالي. وفي الصباح الباكر، ذهب بيرايا إلى بيت صديقه باغو، وفي ظنه أن باغو سينسى أو يتراجع عن الذهاب إلى منغدو لو طلب منه ذلك، لأنهما يعرفان جيداً تصرفات أشرار الماغ وقسوتهم تجاه المسلمين والحيوانات على حد سواء. ولكن باغو فاجأه حين رآه قائلاً بابتسامة وترحاب:", "— مرحباً بك يا صديقي! وأنا مستعد منذ الصباح الباكر للذهاب، هيا إلى منغدو.", "فما كان من بيرايا إلا أن يرافقه في رحلته الشاقة."]}, {"t": "في الطريق ومآسي نقاط التفتيش", "p": ["أخذ الصديقان طريقهما نحو المدينة، وفي أثناء السفر حاول بيرايا عدة مرات أن يتخلف عن صاحبه ويعود إلى القرية، لكن باغو كان صارماً معه، ففشلت جميع محاولات بيرايا للتهرب. ولما جاوزا نقطة التفتيش الأولى (شيك بوست)، قال باغو لصاحبه:", "— بإمكانك أن ترجع الآن إن أردت!", "فرد عليه بيرايا بشجاعة ووفاء:", "— القول ما قلت! ألم أقل لك سابقاً إنني لن أتركك حتى تصبح ضحية لأشرار الماغ العسكر؟ أنا أخاف عليك لو تركتك وحدك أن يلحقوا بك الشر.", "ولا شك في أن بيرايا قد خالطه الخوف الشديد مما رآه عند مرورهما بنقطة التفتيش الأولى، وتذكر المعاملة القاسية التي يتعرض لها أبناء البشر هناك.", "أخذ الكلبان يتحدثان عما شاهداه. سأل باغو:", "— أرأيت كيف تصرفت الشرطة والعسكر مع الناس عند عبورهم نقطة التفتيش؟", "— نعم رأيت! فما هي تلك الأوراق التي يحملها الناس في أيديهم ويقدمونها للشرطة ليحصوها ويقلبوها؟", "— هي وثائق المرور (توكينزا)، يحتاجها المسلمون في هذا البلد كلما أرادوا الذهاب إلى السوق لشراء حاجياتهم الذاتية أو حاجيات بيوتهم ولا يطالب بها غيرهم من المواطنين الآخرين.", "— وكيف علمت كل هذا يا باغو؟", "— كنت قد ذهبت إلى منغدو مرة سابقة قبل ثلاثة أعوام مع جدي المرحوم جمبو - رحمه الله -.", "— رحمة الله عليه رحمة واسعة! ولكن لماذا أخفيت عني هذه الحقيقة؟ وكم مسافة سفرنا هذا؟", "— مسيرة ساعة واحدة على أقدامنا.", "— هذا سفر بسيط! وكم نقطة تفتيش أمامنا بعد؟", "— أمامنا أربع نقاط تفتيش أخرى!", "رفع بيرايا صوته قائلاً بدهشة واستنكار:", "— يا لها من كثرة كاثرة لنقاط التفتيش! أهؤلاء الناس يدخلون دولة أخرى أم يذهبون لشراء حاجياتهم من أقرب سوق في منطقتهم؟! وكيف ينزلون من العربات والمركبات في كل مرة ويمشون أمام العسكر والشرطة بخضوع واستسلام تام؟!", "لاحظ باغو أن الأمر أثار استغراب صاحبه الشديد، فقال محاولاً التخفيف من دهشته:", "— هذا بسيط يا صديقي، ألم ترَ كيف ضرب عسكري بعصاه الغليظة أحدهم لمجرد أنه رفع رأسه ونظر في عينيه؟!", "— بلى، إن هذا لظلمٌ عظيم! ورأيت كيف هدد عسكري امرأةً لأنها أسبلت نقابها على وجهها، وكيف رفع بندقيته في وجه رجل آخر لم تكن بحوزته ورقة توكينزا!", "ثم فكر بيرايا في الأمر طويلاً، وقال بصوت خافت يعصره الألم:", "— يا صديقي! لِمَ لا يقف هؤلاء الناس في وجه هذا الظلم؟ ولِمَ يدفعون أموالهم للظلمة للتخلص من بطشهم كما رأينا؟", "أجاب باغو موضحاً الأسباب النفسية والتاريخية لاستسلام الناس للظلم:", "— لأنهم نشأوا وجدوا آباءهم على هذا واعتادوا عليه، حتى ظنوا أن الخنوع هو الأصل. والآن، إن عاملهم أحدٌ معاملة الأحرار، ظنوا أن ذاك المعامل قد تجاوز حده، وإن عاملهم معاملة العبيد، رأوا ذلك هو الصواب والعدل! وسأحكي لك قصة توضح لك حقيقة حالهم:", "<h3>رمزية الاستسلام والخنوع<\/h3>", "<h3>قصة الرجل المضروب في القلعة<\/h3>", "في إحدى القرى، طُلِب من رجل مسلم أن يحضر فوراً إلى قلعة الجنود. فحضر الرجل، وكان أهل القرية ينتظرون رجوعه في فناء القرية، عاقدين عيونهم نحو القلعة بقلوب وجلة، ولا يدري أحد منهم ماذا سيكون مصيره. ولما طال انتظارهم، سيطر اليأس والقلق على الجميع.", "فقال أحد الحاضرين: ارجعوا إلى بيوتكم، فهو لن يعود إليكم أبداً، لأن الجنود قد حسموا أمره وقضوا عليه في هذه الساعات! فتساءل الناس: ماذا كان ذنب هذا الرجل؟ ولم يكن أحد يدري بذنبه.", "وأخيراً، خرج الرجل من القلعة جريحاً يسحب قدميه بصعوبة، فسقط أمام بوابة القلعة. فتقدم رجلان من أهل القرية خائفين وحملاه إلى الجمع، وقد كُسرت رجلاه وتغيرت معالم وجهه من شدة الضرب. فسأله الناس بقلق: لمَ ضربك الجنود كل هذا الضرب؟", "فقال بصوت خافت مكسور: لأنني لم أخبرهم بأن بقرتي قد ولدت عجلاً جديداً!", "فصاح رجال القرية بغضب عليه وقالوا: قد أحسنوا صنعاً بك! بل إنهم أخطأوا حين تركوك حياً! فبسبب أمثالك نحن نعيش في رعب وقلق دائمين. لِمَ لم تُخبرهم وأنت تعلم أن من الواجب علينا أن نبلغهم إذا ولدت المواشي لدينا؟! ومن لا يخبرهم يستحق أشد العقاب! فأنت وجدت ما تستحقه! ثم تفرق الناس وتركوه مُضَرَّجاً بدمائه، ولم يَبْقَ معه إلا أهله الأَدْنُونَ…", "حكى باغو هذه القصة وعيناه مغرورقتان بالدموع، ثم واصل الصديقان السفر نحو منغدو."]}, {"t": "الوصول إلى منغدو وضيافة جبّو", "p": ["وصل الكلبان أخيراً إلى مدينة منغدو بعد ما شاهداه في الطريق من بطش العسكر والشرطة بالناس وتهديدهم وتخويفهم. فقال باغو بلهجة الشاكرين لله:", "— الحمد لله الذي بلغنا المدينة وما أصابنا مما أصاب بني الإنسان!", "فأكد بيرايا قوله قائلاً:", "— والحمد لله الذي ما جعلنا إنساناً وجعلنا كلابهم!", "— إذن نحن خيرٌ أم بنو الإنسان؟ وهم يقولون إنهم أشرف المخلوقات جميعاً!", "أطرق بيرايا فترةَ تفكير، ثم رفع رأسه وقال زاعماً الحكمة:", "— هم أشرف المخلوقات حقاً! ألم ترَ كيف يلبسون الثياب الفاخرة، ويأكلون الأطعمة اللذيذة، ويعيشون في البيوت الشامخة، بينما نحن ليس لدينا ثوب نلبسه، ولا طعام نأكله إلا فضلهم، ونحرس بيوتهم من الخارج؟", "فأنكر باغو عليه هذا المعيار المادي قائلاً:", "— إذن مقياس الشرافة عندك هو الثياب والأطعمة والبيوت؟!", "— نعم، هذه هي الشرافة في الدنيا، ونحن لا نتحدث عن الآخرة! وإذا كانوا أشرف منا، فلِمَ خضعوا أمام مخلوق مثلهم خوفاً من ظلمه؟!", "فلم يطل باغو النقاش مع صاحبه بل قال: نحن ما جئنا لنناقش في أمر الإنسان، بل جئنا لزيارة المدينة ومشاهدة أهاليها.", "<h3>اللقاء بالكلب الصالح جبّو والمداهمات الليلية<\/h3>", "كان عند مدخل المدينة في حي شقدار بارة كلبٌ صالح يدعى جبّو، يرحم الضعفاء ويضيف الغرباء. فلما رأى الكلبين الغريبين يائهين في الطريق، علم أنهما قدما من القرية، فاقترب منهما وقال بحنان وترحيب بلغة الكلاب:", "— «أهو كوكورو»! (ومعناها في معشر الكلاب: كونوا كلاباً حقيقية).", "فالتفتا إليه بنظرة الشك، وردا السلام قائلين:", "— «أما هو كوكورو»! (ومعناها: لا تمُت إلا وأنت كلبٌ حقاً).", "رحب بهما جبّو واستضافهما في فناء بيت صاحبه بكل سرور.", "وعندما سكن الليل وهدأ، ولجأ الناس إلى مضاجعهم، كان الكلاب الثلاثة في فناء البيت. فخرجت الشرطة والمفتشون لعملياتهم الليلية التعسفية كما هي عادتهم في كل ليلة؛ حيث يقتحمون بيوت المواطنين المسلمين على غفلة، ويسلبون أموالهم ومجوهراتهم بعد أن يتهموهم بذنب كاذب أو بجرائم لا صلة لهم بها. بل إن ذنب المسلم في نظرهم هو أن يملك مالاً وفيراً، أو حلياً غالية تلبسها نساؤه. ويحاسبون عدد أفراد الأسرة، فإن وجدوا فرداً غائباً دون إذن السلطات ألقوا القبض على عائلته، وإن وجدوا فرداً زائداً (كضيف أو قريبة متزوجة) ضربوا الضيف والمضيف ضرباً مبرحاً وسحلوهم إلى مخفر الشرطة!"]}, {"t": "صلاة الفجر وجسر ماينغ خالي", "p": ["<h3>نقاش غاية الخلق عند جسر ماينغ خالي<\/h3>", "في الصباح التالي، استيقظ الكلبان وخرجا مع جبّو، فرأوا أناساً خرجوا من المسجد بعد صلاة الفجر للمشي، فاتبعوهم حتى وصلوا إلى جسر ماينغ خالي (هالا بول). وتوقف الناس هناك وأخذوا يتناقشون في أمر غاية خلق الإنسان:", "قال أحدهم: لِمَ خلق الله الإنسان؟", "فأجاب الثاني مستشهداً بالقرآن: لِعبادة الله عز وجل، كما قال تعالى: ﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ﴾.", "وقال الثالث: ليس هذا فحسب، بل قال جل وعلا: ﴿كُنْتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنْكَرِ﴾، وقال أيضاً للملائكة: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾.", "فعقب الأول موضحاً: إذن خلقهم عباداً له تعظيماً لجلاله، وجعلهم خلفاء في الأرض شرافةً وتكريماً لهم، وأخرجهم دعاةً إلى الخير نفعاً لغيرهم.", "وقبل الرجوع، رأوا مشهداً مأساوياً أنساهم ما كانوا فيه، حيث كان وراء نقطة تفتيش الجسر شيخٌ ضعيف يحمل حمولة ثقيلة من الخشب. فاستوقفه عسكري يحمل عصا غليظة، وأخذ يضربه بها بعنف ويهدده بحنق، لأن الشيخ لم يدفع له الرشوة المعتادة عن حمل الخشب! فمر الشيخ والدم يجري من مقدم رأسه، فسلم عليه الكلاب الثلاثة بلغتهم، وحزنوا لحاله حزناً شديداً. ورأوا أن السماكين والبقالين والتجار يدفعون كلهم إتاوات ورشاوى للعسكر من سلعهم وأسماكهم لتفادي البطش.", "سأل باغو الكلب الصالح جبّو:", "— لِمَ يعامل العساكر الناس بهذه القسوة ويسلبون أموالهم بالباطل؟", "— لأن الناس مسلمون ضعفاء يؤمنون بالله ورسله، والعساكر والحكومة كلهم كافرون لا يؤمنون بالله، ومن لا يخاف الله يظلم الضعفاء. فلذا أمر الله المؤمنين بإيقاف الظلم وإنفاذ أحكامه في الأرض.", "— ولِمَ لا يحاول مسلمو هذا البلد إقامة أحكام الله والخلافة والعدل؟", "— لِجهلهم بدينهم، وضعفهم في إيمانهم، وحُبهم للدنيا، وخوفهم من الموت!", "وقد بيَّن جبّو أن رفع الظلم لا يتحقق إلا بالجهاد وإنفاذ أحكام الله والخلافة."]}, {"t": "تناقضات المدينة والتصادم مع الواقع", "p": ["ودع الكلبان صديقهما جبّو وواصلا جولتهما في شوارع منغدو. وأول من لقياه كلبٌ عجوز من كلاب معابد البوذيين، مقطوع الأذن والذيل وفاقد لإحدى أرجله. فسلم عليه باغو بلطف، لكن الكلب البوذي رد باحتقار واستهزاء وسألهما عن قريتهما، فلما سمع أنها خيرادنغ، اصفرّ وجهه حنقاً ونادى ثمانية كلاب من المعبد، فهجموا على بيرايا وباغو بجشع وفزع. ففر الصديقان هاربين وهما مصابان بجروح وألم.", "<h3>الموظف الغاضب والأطفال عند القمامة<\/h3>", "وقف الكلبان عند مدخل زقاق يلهثان من التعب والعطش. فرأيا رجلاً يخرج من الزقاق ولسانه خارج من فمه، فظنا أنه يلهث عطشاً مثلهما ومشيا وراءه ليشربا معه. ولكن ذاك الرجل كان موظفاً غاضباً خرج من مكتبه بعدما تلقى إهانة من مديره، وكان متوجهاً لبيته وهو ينتظر إهانة أخرى من زوجته! وكان ما يتدلى من فمه ليس لسانه بل ربطة عنقه الحمراء (Red Tie)! فلما رأى الموظف الكلبين يمشيان خلفه، أفرغ جام غضبه عليهما وطاردهما كالمجنون، ففرا منه مذعورين. ثم وصلا إلى جدول ماء بجانب مقهى، ولما دنوا يشربان، خرج ولد من المقهى ورماهما بكيس ماء ساخن ففزعا منه! وهربا حتى بلغا سباطة السوق، فشاهدا مشهد أطفال وصبية من بني البشر يبحثون عن طعامهم بين القمامة وسلال المهملات! أثار هذا المشهد دهشة الكلبين وحزنهما الشديد؛ فقد كانا يعتقدان أن الكلب هو الحيوان الوحيد الذي يطلب طعامه في القمامة، فإذا بأبناء البشر الجياع يشاركونهم أكل القمامة! ولما اقترب الكلبان بعطف، طردهما أكبرهم بحجارة.", "فقال بيرايا لصاحبه بتحدٍّ وألم:", "— فكيف يكون الإنسان أشرف المخلوقات وأبناؤهم يأكلون طعامنا في القمامة ويمنعوننا منه؟!", "فقال باغو بلهجة حادة:", "— أبداً! لا يكون الإنسان أشرفنا ما لم يرحموا الضعفاء ولا يظلموا الأبرياء!"]}, {"t": "ساحة برج الساعة والتمثال", "p": ["<h3>تمثال ساحة البرج ونموذج عمر بن الخطاب<\/h3>", "واصل الصديقان جولتهما حتى وصلا إلى ساحة البرج الكبرى بمنغدو، فذهلهما جمال الساحة ورعايتها الفائقة. وتوقفا فجأة حين رأيا فتاةً عارية قبالتهما! ثم اكتشف بيرايا أن الفتاة جمادٌ مصنوع من الحجر: تمثالٌ نصفه الأعلى فتاة ونصفه الأسفل سمكة في الماء، وتحيط به الزهور والأشجار المنسقة وبرج الساعة الشامخ.", "تنهد باغو قائلاً بعدما قارن بين اهتمام البشر بهذا التمثال وبين جوع أطفالهم:", "— الإنسان اعتنى بهذا التمثال الميت إلى هذا الحد، وأبناؤهم من جنسهم يموتون جوعاً عند القمامة! لِمَ هذا التناقض؟ قل لي بحق الصداقة!", "فقال بيرايا بكل ثقة وجدارة:", "— إن هؤلاء القوم ليسوا إنساناً حقاً! أولئك كالأنعام بل هم أضل سبيلاً!", "— فمن هم الإنسان الحقيقي إذن؟", "— هم الذين يحبون الخير فيتبعونه، ويكرهون الشر فينبذونه، ويحقون الحق ويبطلون الباطل!", "سأل باغو: هل فيهم أحد هو إنسان بالمعنى الحقيقي؟", "فأجاب بيرايا: نعم كثيرون بكل تأكيد! مثل أمير المؤمنين عمر بن الخطاب؛ آمن بالله ورسوله، عرف الخير فأحبه، وعرف الشر فكرهه. وكان خليفة رسول الله في الأرض، وهو القائل بضمير العدل الخالد: «لَوْ مَاتَتْ شَاةٌ عَلَى شَطِّ الْفُرَاتِ ضَائِعَةً لَظَنَنْتُ أَنَّ اللَّهَ تَعَالَى سَائِلِي عَنْهَا يَوْمَ الْقِيَامَةِ» … أين هؤلاء من عمر؟!"]}, {"t": "العودة إلى القرية وحقيقة الشرف", "p": ["خرج الصديقان من الساحة مغادرَين المدينة نحو قريتهما، وما كان أحد في الأرض أكره لديهما من هؤلاء الأنعام في صورة البشر الذين ضيعوا الحقوق والعدل. وفي طريق العودة، رأيا نفس الشيخ الفقير الذي ضُرب عند نقطة التفتيش صباحاً، يتشاجر مع شاب سرق منه مائة كيات (العملة المحلية) من ثمن الخشب الذي باعه ليشتري به طعاماً لبناته الأربع وزوجته العجوز! فحزن الصديقان لهذا المشهد حزناً شديداً.", "وفجأة، وقفت سيارة فارهة في الشارع، وكانت تجلس داخلها سيدة غنية تحمل في أحضانها كلبةً صغيرة غريبة الشكل، كثيفة الفراء طويلة الشعر، تعيش في النعيم والرفاهية! فنظرت الكلبة المترفة إلى بيرايا وباغو وقالت لهما بصوتها الناعم بلغة الكلاب: «أهو كوكورو»! فنفض الكلبان رأسيهما تحيةً لها، وقبل أن يسألاها عن اسمها، انطلقت السيارة وغابت عن الأنظار.", "قال باغو لصاحبه بلهجة مفعمة بالحكمة والوعي:", "— يا بيرايا! أنت قلت سابقاً إن مقياس الشرافة هو الثياب والأطعمة والمساكن الفاخرة! فماذا تقول في هذه الكلبة وهي تعيش في نعيم لم يذقه معظم أبناء الإنسان في هذه المدينة البتة؟!", "فصمت بيرايا ولم يدرِ ما يجيبه، فرفع باغو صوته قائلاً بالحق الخالد:", "<h3>معيار الشرف الحقيقي — «الخلاصة الفلسفية لرحلة الكلبين»<\/h3>", "«أنت قلت إن مقياس الشرف هو الثياب والأطعمة والمساكن الفاخرة.. فماذا تقول في هذه الكلبة المترفة داخل السيارة؟! إن المقياس المادي مقياس زائف!", "اعلم يا صديقي أن الإنسان لا يكون أشرف المخلوقات ما دام يحكمه بشر بأمر نفسه ولا يحكم بأمر الله! فلا تتحقق شرافة بني الإنسان ولا تتم عبوديتهم لله إلا بإنفاذ أحكام الله وإقامة الخلافة والعدل في الأرض!»"]}, {"t": "الملحق: دليل المصطلحات والشخصيات", "p": ["<h3>قاموس المصطلحات والمواقع والشخصيات<\/h3>", "<b>توكينزا (Movement Pass): <\/b>وثيقة تصريح مرور فرضتها السلطات على الروهينجا للتنقل بين القرى والأسواق.", "<b>شيك بوست (Check Post): <\/b>نقاط التفتيش العسكرية والشرطية المنتشرة لمراقبة وابتزاز السكان.", "<b>الماغ (Magh / Rakhine): <\/b>القومية البوذية الحاكمة في أركان والمشاركة في الاضطهاد.", "<b>منغدو (Maungdaw): <\/b>مدينة رئيسية في ولاية أركان على حدود نهر ناف (Naaf River).", "<b>تاونغوب (Taungup): <\/b>منطقة ذات غالبية بوذية متطرفة معروفة بالعداء الشديد للمسلمين.", "<b>بيرايا وباغو (Beraya &amp; Bago): <\/b>الكلبان البطلان والراصدان الفكريان للرحلة.", "<b>جبّو (Jobbu): <\/b>الكلب الصالح المقيم في منغدو والذي يفسر سنن الابتلاء والخلافة."]}];
+var PODS=[
+{id:"p0",t:"الحلقة ١: كيف جاءت فكرة «سفر الكلبين»",s:"Episode 1: How the idea of the book began"},
+{id:"e2",t:"الحلقة ٢: حين يصير الظلم عادة",s:"Episode 2: When injustice becomes a habit"},
+{id:"e3",t:"الحلقة ٣: ما مقياس الشرف؟",s:"Episode 3: What is the measure of honor?"}
+];
+var $=function(i){return document.getElementById(i)},Q=function(s){return [].slice.call(document.querySelectorAll(s))};
+var aud=$('aud'),pod=$('pod'),atx=$('atext'),txt=$('text'),cur=0,TSA=[],url=null,purl=null,syncing=false,si=0;
+/* Permanent links: AUDIO_URL[chapterNumber]="https://...mp3"; AUDIO_TS[chapterNumber]=[0,12.5,...] */
+var AUDIO_URL={},AUDIO_TS={"0": [1.177098, 24.584694, 44.250241, 68.584584, 96.667882, 110.25975, 123.560494, 133.00488, 142.517841, 148.304951, 155.185786, 163.098209, 172.707045], "1": [1.709478, 30.317176, 52.097319], "2": [1.2636, 21.771963, 27.429673, 30.100835, 34.144656, 38.606691, 43.705098, 50.240657, 57.104061, 61.22828, 64.325638, 66.544495, 68.645636, 77.477905, 85.06355, 111.573769, 117.563525], "3": [2.421853, 23.754903, 26.807021, 30.01711, 40.53124, 52.596618, 57.896927, 63.043688, 69.196131, 83.889314, 87.069248, 92.296741, 100.996625, 103.726181, 107.493263, 109.921509, 113.669748, 129.802946, 134.596838, 144.720113, 159.015331, 164.442306, 173.717543, 180.114664, 208.946128, 228.599107, 248.073178, 266.706098, 277.176535, 309.812283], "4": [1.151039, 18.532426, 21.910229, 24.486451, 29.48022, 35.369268, 40.354301, 57.260585, 61.212616, 65.482984, 75.957883, 89.84601, 108.020325, 115.244828, 119.964469, 126.201018, 132.190867]};
+var tok=0,rate=1,TS='speechSynthesis' in window;
+function paras(c){return c.p.filter(function(x){return x.indexOf('<h3')!==0})}
+function html(c,idx){var n=-1;return '<h2>'+c.t+'</h2>'+c.p.map(function(x){if(x.indexOf('<h3')===0)return x;n++;return '<p'+(idx?' data-k="'+n+'"':'')+'>'+x+'</p>'}).join('')}
+function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function ld(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function toast(m){var t=$('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},4000)}
+function idb(){return new Promise(function(res,rej){var r=indexedDB.open('am',1);r.onupgradeneeded=function(){r.result.createObjectStore('a')};r.onsuccess=function(){res(r.result)};r.onerror=function(){rej()}})}
+function put(k,v){return idb().then(function(d){return new Promise(function(res,rej){var t=d.transaction('a','readwrite');t.objectStore('a').put(v,k);t.oncomplete=res;t.onerror=rej})})}
+var MEM={};function get(k){if(MEM[k])return Promise.resolve(MEM[k]);return idb().then(function(d){return new Promise(function(res){var q=d.transaction('a').objectStore('a').get(k);q.onsuccess=function(){res(q.result)};q.onerror=function(){res()}})}).catch(function(){})}
+function plain(h){var d=document.createElement('div');d.innerHTML=h;return d.textContent.trim()}
+function stopTTS(){tok++;if(TS)speechSynthesis.cancel()}
+function readFrom(arr,k,hl,done,t){if(t!==tok)return;if(k>=arr.length){done();return}
+hl(k);var u=new SpeechSynthesisUtterance(arr[k]);u.lang='ar-SA';u.rate=rate;
+u.onend=function(){readFrom(arr,k+1,hl,done,t)};u.onerror=function(){if(t===tok)done()};speechSynthesis.speak(u)}
+function setBtn(on){$('tp').textContent=on?'■ Stop':'▶ Play voice demo';$('tp').dataset.on=on?'1':'0'}
+function hlSet(k){Q('#atext p').forEach(function(p,i){p.classList.toggle('hl',i===k)});var e=atx.querySelector('p.hl');if(e)e.scrollIntoView({block:'center'})}
+function hlClear(){hlSet(-1)}
+function stopAll(){stopTTS();setBtn(false);hlClear();pReset();aud.pause();pod.pause()}
+function go(id){stopAll();Q('.view').forEach(function(v){v.classList.toggle('on',v.id===id)});$('nav').style.display=id==='v-book'?'flex':'none';window.scrollTo(0,0)}
+Q('[data-go]').forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+Q('nav button').forEach(function(b){b.onclick=function(){stopAll();Q('nav button').forEach(function(x){x.classList.toggle('on',x===b)});Q('.tab').forEach(function(x){x.classList.toggle('on',x.id===b.dataset.t)});window.scrollTo(0,0)}});
+
+/* Read */
+var sel=$('chap');
+CHAPTERS.forEach(function(c,i){var o=document.createElement('option');o.value=i;o.textContent=c.t;sel.appendChild(o)});
+function show(i){txt.innerHTML=html(CHAPTERS[i],false);save('ch',i);window.scrollTo(0,0)}
+sel.onchange=function(){show(sel.value)};
+var sv=+ld('ch')||0;if(sv>=CHAPTERS.length)sv=0;sel.value=sv;show(sv);
+var fs=22;function setFs(d){fs=Math.min(34,Math.max(16,fs+d));txt.style.setProperty('--fs',fs+'px');atx.style.setProperty('--fs',fs+'px')}
+$('sm').onclick=function(){setFs(-2)};$('lg').onclick=function(){setFs(2)};
+
+/* Listen & Read */
+var asel=$('achap');
+CHAPTERS.forEach(function(c,i){var o=document.createElement('option');o.value=i;o.textContent=c.t;asel.appendChild(o)});
+function loadA(i){cur=i;var c=CHAPTERS[i];stopAll();syncing=false;$('mk').style.display='none';
+atx.innerHTML=html(c,true);TSA=[];try{TSA=JSON.parse(ld('ts'+i)||'[]')}catch(e){}if(!TSA.length&&AUDIO_TS[i])TSA=AUDIO_TS[i];
+aud.removeAttribute('src');
+get('ch'+i).then(function(b){if(cur!==i)return;
+if(b){if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(b);aud.src=url}else if(AUDIO_URL[i]||c.a){aud.src=AUDIO_URL[i]||c.a}
+var has=!!aud.getAttribute('src');aud.style.display=has?'block':'none';$('demo').style.display=has?'none':'flex';$('sy').style.display=has?'inline-block':'none';
+$('anote').textContent=has?(TSA.length?'Read-along is on. Tap a paragraph to jump to it in the audio.':'Audio added. Tap "Sync text with audio" so the text follows the voice.'):'No audio for this chapter yet. Tap "＋ Add audio" to pick an MP3 from your phone, or play the phone-voice demo.'})}
+asel.onchange=function(){loadA(+asel.value)};
+$('af').onchange=function(){var f=this.files[0];if(!f)return;
+MEM['ch'+cur]=f;save('ts'+cur,'[]');loadA(cur);put('ch'+cur,f).then(function(){toast('Audio added and saved on this phone.')}).catch(function(){toast('Audio added, but it will be lost when you close the page.')});this.value=''};
+$('sy').onclick=function(){if(!aud.getAttribute('src'))return;syncing=true;si=0;TSA=[];aud.currentTime=0;aud.play();$('mk').style.display='block';updMk();toast('Each time the audio starts a new paragraph, tap the big button.')};
+function updMk(){$('mk').textContent='Next paragraph ('+si+'/'+paras(CHAPTERS[cur]).length+')';hlSet(si)}
+$('mk').onclick=function(){TSA[si]=aud.currentTime;si++;
+if(si>=paras(CHAPTERS[cur]).length){syncing=false;$('mk').style.display='none';save('ts'+cur,JSON.stringify(TSA));hlClear();$('anote').textContent='Sync saved. Press play on the audio.';toast('Sync saved.')}else updMk()};
+aud.ontimeupdate=function(){if(syncing||!TSA.length)return;var k=-1;for(var i=0;i<TSA.length;i++){if(TSA[i]<=aud.currentTime)k=i}hlSet(k)};
+atx.onclick=function(ev){var p=ev.target.closest('p');if(p&&TSA.length&&!syncing&&aud.getAttribute('src')){aud.currentTime=TSA[+p.dataset.k];aud.play()}};
+$('cp').onclick=function(){var o={};CHAPTERS.forEach(function(c,i){var v=ld('ts'+i);if(v&&v!=='[]')o[i]=JSON.parse(v)});var t=JSON.stringify(o);
+if(t==='{}'){toast('No sync saved yet.');return}
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('Timings copied. Send them to Claude.')}catch(e){prompt('Copy this text:',t)}a.remove()}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('Timings copied. Send them to Claude.')}).catch(fb)}else fb()};
+$('rate').onchange=function(){rate=+$('rate').value};
+$('tp').onclick=function(){
+if(!TS){toast('This browser cannot speak Arabic. Try Chrome on Android.');return}
+if($('tp').dataset.on==='1'){stopTTS();setBtn(false);hlClear();return}
+var arr=paras(CHAPTERS[cur]).map(plain);stopTTS();var t=tok;setBtn(true);
+readFrom(arr,0,hlSet,function(){setBtn(false);hlClear()},t)};
+loadA(0);
+
+/* Podcast */
+var pcur=-1,custom=[];try{custom=JSON.parse(ld('eps')||'[]')}catch(e){}
+function pReset(){pcur=-1;Q('#podList .item').forEach(function(x){x.classList.remove('on')});$('pstat').textContent=''}
+function podRender(){var box=$('podList');box.innerHTML='';
+PODS.concat(custom).forEach(function(d,i){var r=document.createElement('div');r.className='prow';
+var b=document.createElement('button');b.className='item';b.innerHTML=d.t+'<span>'+d.s+'</span>';
+b.onclick=function(){var was=pcur===i;stopTTS();pod.pause();pReset();if(was)return;pcur=i;b.classList.add('on');
+get('pod:'+d.id).then(function(bl){if(pcur!==i)return;
+if(bl){if(purl)URL.revokeObjectURL(purl);purl=URL.createObjectURL(bl);pod.style.display='block';pod.src=purl;pod.play()}
+else if(d.u){pod.style.display='block';pod.src=d.u;pod.play()}
+else if(d.x){if(!TS){$('pstat').textContent='This browser cannot speak Arabic. Try Chrome on Android.';return}
+var t=tok,n=d.x.length;readFrom(d.x,0,function(k){$('pstat').textContent='Playing sample voice, part '+(k+1)+' of '+n},function(){pReset()},t)}
+else $('pstat').textContent='No audio yet. Tap ＋ Audio to add a file.'})};
+var l=document.createElement('label');l.className='add';l.textContent='＋ Audio';
+var f=document.createElement('input');f.type='file';f.accept='audio/*';f.className="vh";
+f.onchange=function(){var fl=f.files[0];if(!fl)return;MEM['pod:'+d.id]=fl;put('pod:'+d.id,fl).then(function(){toast('Audio added and saved on this phone.')}).catch(function(){toast('Audio added, but it will be lost when you close the page.')})};
+l.appendChild(f);r.appendChild(b);r.appendChild(l);box.appendChild(r)})}
+$('newep').onclick=function(){var t=prompt('Episode title');if(!t)return;
+custom.push({id:'c'+Date.now(),t:t,s:'Episode '+(PODS.length+custom.length+1)});save('eps',JSON.stringify(custom));podRender()};
+pod.style.display='none';podRender();
+</script>
+</body>
+</html>
